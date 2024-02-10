@@ -6,3 +6,8 @@
   font-family: "Nunito Sans";
   font-style: normal;
 }
+
+body {
+  background-color: #202c36;
+  color: #333;
+}
