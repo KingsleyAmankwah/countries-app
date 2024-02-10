@@ -1,0 +1,43 @@
+<div
+  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-8 xl:gap-16 w-full mt-10"
+>
+  @for(country of countries; track countries){
+  <div
+    class="flex flex-col text-white my-5 bg-[#2B3844] rounded-lg"
+    [routerLink]="['/details', country.name.common]"
+  >
+    <img
+      [src]="country.flags.svg"
+      class="object-cover rounded-t-lg h-[160px] w-full sm:h-[160px] md:h-[200px] md:w-full lg:h-[200px] lg:w-full xl:h-[200px] xl:w-full"
+      alt="country-flag"
+    />
+    <div class="country-details pl-4 py-8">
+      <h2 class="pb-4 font-bold">{{ country.name.common }}</h2>
+
+      <div class="space-y-1">
+        <p class="font-normal">
+          Population:
+          <span class="font-extralight text-[12px]">
+            {{ country.population }}
+          </span>
+        </p>
+        <p class="font-normal">
+          Region:
+          <span class="font-extralight text-[12px]"> {{ country.region }}</span>
+        </p>
+        <p class="font-normal">
+          Capital:
+          <span class="font-extralight text-[12px]">
+            {{ country.capital }}</span
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+
+  }@empty{
+  <div class="flex justify-center items-center h-96">
+    <p class="text-white">No countries found</p>
+  </div>
+  }
+</div>
