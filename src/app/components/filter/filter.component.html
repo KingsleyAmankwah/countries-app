@@ -1,0 +1,40 @@
+<label
+  class="relative flex justify-between items-center w-full bg-[#2B3844] h-[56px] text-white rounded-[5px] px-5 py-4 cursor-pointer"
+  (click)="toggleFilter()"
+>
+  <div>
+    <p class="text-[12px] md:text-[14px]">Filter by Region</p>
+  </div>
+
+  <div>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      [attr.transform]="'rotate(' + rotation + ')'"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M9.45 3.45L6 6.9L2.55 3.45L1.5 4.5L6 9L10.5 4.5L9.45 3.45Z"
+        fill="white"
+      />
+    </svg>
+  </div>
+
+  @if (showFilter) {
+  <div
+    class="absolute left-0 right-0 top-full z-10 mt-2 grid max-h-[195px] gap-[1px] overflow-hidden py-4 bg-[#2B3844] rounded-[5px]"
+  >
+    <ul class="flex flex-col space-y-3 pl-5">
+      <li>Africa</li>
+      <li>America</li>
+      <li>Asia</li>
+      <li>Europe</li>
+      <li>Oceania</li>
+    </ul>
+  </div>
+  }
+</label>
