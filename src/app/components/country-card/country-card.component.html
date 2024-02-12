@@ -3,6 +3,11 @@
 >
   @for(country of countries; track countries){
   <div
+    [ngClass]="{
+      'flex flex-col  my-5  rounded-lg': true,
+      'text-white bg-[#2B3844]': isDarkTheme,
+      'bg-white text-black': !isDarkTheme
+    }"
     class="flex flex-col text-white my-5 bg-[#2B3844] rounded-lg"
     [routerLink]="['/details', country.name.common]"
   >
