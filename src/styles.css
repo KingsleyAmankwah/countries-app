@@ -7,7 +7,7 @@
   font-style: normal;
 }
 
-.content.light-theme {
+/* .content.light-theme {
   background-color: #f2f2f2;
   color: #000;
 }
@@ -15,4 +15,10 @@
 .content.dark-theme {
   background-color: #202c36;
   color: #fff;
+} */
+
+
+body{
+  background-color: #202c36;
+  color: #000;
 }
