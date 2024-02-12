@@ -38,9 +38,8 @@ DevLinks is a link sharing app designed to streamline your sharing experience ac
 :heavy_check_mark: optimal responsive user interface;\
 :heavy_check_mark: Drag and drop links to reorder them;
 
-### Screenshot
-
-![screenshot](https://github.com/KingsleyAmankwah/countries-app/assets/64941442/7aa8e12a-d9f1-47a5-80c2-83116f646fbf)
+### Screenshot Dark Theme
+![dark-theme](https://github.com/KingsleyAmankwah/countries-app/assets/64941442/7a4160aa-cf6a-430a-8b2b-f976215dc875)
 
 ## :rocket: Technologies
 
