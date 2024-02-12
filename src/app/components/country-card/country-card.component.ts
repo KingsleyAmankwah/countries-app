@@ -15,18 +15,24 @@ import { ThemeService } from '../../services/theme.service';
 export class CountryCardComponent {
   countries!: Country[];
   isDarkTheme = false;
+  searchTerm!: string;
 
   countryService = inject(CountryService);
   themeService = inject(ThemeService);
 
   ngOnInit() {
+    this.themeService.isDarkTheme.subscribe((darkTheme) => {
+      this.isDarkTheme = darkTheme;
+    });
+
+    this.countryService.getSearchTerm().subscribe((term) => {
+      this.searchTerm = term;
+    });
+
     this.countryService.getCountries().subscribe((countries) => {
       this.countries = countries;
-      // console.log(countries);
-
-      this.themeService.isDarkTheme.subscribe((darkTheme) => {
-        this.isDarkTheme = darkTheme;
-      });
     });
   }
+
+
 }
