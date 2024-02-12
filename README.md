@@ -6,8 +6,8 @@
 
 <h1 align="center">Countries App</h1>
 
- <h4 >
-	🚧  Countries App Project is Under construction...  🚧
+ <h4 align="center">
+	🚧  Countries App Under construction...  🚧
 </h4>
 
 <hr>
@@ -38,8 +38,11 @@ DevLinks is a link sharing app designed to streamline your sharing experience ac
 :heavy_check_mark: optimal responsive user interface;\
 :heavy_check_mark: Drag and drop links to reorder them;
 
-### Screenshot Dark Theme
+### Dark Theme
 ![dark-theme](https://github.com/KingsleyAmankwah/countries-app/assets/64941442/7a4160aa-cf6a-430a-8b2b-f976215dc875)
+
+### Light Theme
+![light-theme](https://github.com/KingsleyAmankwah/countries-app/assets/64941442/a4aef289-8d3d-4bcf-8c31-6382920609bd)
 
 ## :rocket: Technologies
 
