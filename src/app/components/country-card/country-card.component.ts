@@ -34,5 +34,14 @@ export class CountryCardComponent {
     });
   }
 
+  get filteredContryList() {
+    if (!this.searchTerm) {
+      return this.countries;
+    }
 
+    const lowerCaseTerm = this.searchTerm.toLowerCase();
+    return this.countries.filter((country) =>
+      country.name.common.toLowerCase().includes(lowerCaseTerm)
+    );
+  }
 }
