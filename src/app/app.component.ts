@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CountryListComponent } from './components/country-list/country-list.component';
 import { CountryDetailsComponent } from './components/country-details/country-details.component';
+import { CountryService } from './services/country.service';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -20,4 +22,13 @@ import { CountryDetailsComponent } from './components/country-details/country-de
 })
 export class AppComponent {
   title = 'Countrie App';
+  isDarkTheme = false;
+
+  themeService = inject(ThemeService);
+
+  ngOnInit() {
+    this.themeService.isDarkTheme.subscribe((darkTheme) => {
+      this.isDarkTheme = darkTheme;
+    });
+  }
 }
