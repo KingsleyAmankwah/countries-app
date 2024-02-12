@@ -26,22 +26,24 @@
 
 ## :dart: About
 
-DevLinks is a link sharing app designed to streamline your sharing experience across various platforms. Whether you're a developer, designer, or tech enthusiast, DevLinks empowers you to curate, organize, and share links effortlessly.
+The Countries App makes requests to the REST Countries API, fetching and displaying information about various countries on the homepage. It includes features like filtering by region, toggling between light and dark mode, and searching for specific countries.
 
 - Live Site URL: <a href="https://countries-app-nine-bice.vercel.app/" target="_blank">Demo🚀🔥</a>
 
 ## :sparkles: Features
 
-:heavy_check_mark: Create, read, update, delete links and see previews in the mobile mockup;\
-:heavy_check_mark: Validations if the links form is submitted without a URL or with the wrong URL pattern for the platform;\
-:heavy_check_mark: Preview their devlinks profile and copy the link to their clipboard;\
-:heavy_check_mark: optimal responsive user interface;\
-:heavy_check_mark: Drag and drop links to reorder them;
+:heavy_check_mark: Display of all countries from the API on the homepage;\
+:heavy_check_mark: Filtering of countries by region;\
+:heavy_check_mark: Toggle the color scheme between light and dark mode;\
+:heavy_check_mark: Searching for a country using an input field;\
+:heavy_check_mark: Optimal layout for the site depending on their device's screen size;
 
 ### Dark Theme
+
 ![dark-theme](https://github.com/KingsleyAmankwah/countries-app/assets/64941442/7a4160aa-cf6a-430a-8b2b-f976215dc875)
 
 ### Light Theme
+
 ![light-theme](https://github.com/KingsleyAmankwah/countries-app/assets/64941442/a4aef289-8d3d-4bcf-8c31-6382920609bd)
 
 ## :rocket: Technologies
