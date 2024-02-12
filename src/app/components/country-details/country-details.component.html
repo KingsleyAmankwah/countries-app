@@ -1,74 +1,114 @@
-<div class="flex flex-col md:my-16 mb-4">
-  <div
-    [routerLink]="['/']"
-    class="flex flex-row items-center text-white space-x-3 bg-[#2B3844] w-[fit-content] px-8 py-2 rounded-md cursor-pointer"
-  >
-    <img src="../assets/Shape.png" alt="back-icon" />
-    <span> Back </span>
-  </div>
+<div
+  [ngClass]="{
+    'w-full h-full py-8 lg:h-[100vh] xl:h-[90vh] ': true,
 
+  }"
+>
   <div
-    class="flex flex-col lg:flex-row justify-between lg:items-center w-full mt-8"
+    [ngClass]="{
+    'flex flex-col md:my-16 mb-4 mx-auto mt-8 px-5 md:px-20 xl:overflow-y-hidden': true,
+  }"
   >
-    <div class="w-full -ml-3 md:-ml-5 lg:w-3/4">
-      <img src="../assets/FLAG_C.png" alt="country-flag" />
+    <div
+      [routerLink]="['/']"
+      class=""
+      [ngClass]="{
+        'flex flex-row items-center  space-x-3 w-[fit-content] px-8 py-2 rounded-md cursor-pointer': true,
+        ' bg-white text-black': !isDarkTheme,
+        'bg-[#2B3844] ': isDarkTheme
+      }"
+    >
+      @if (isDarkTheme) {
+
+      <img src="../assets/Shape.png" alt="back-icon" />
+      }@else {
+      <img src="../assets/Shape-b.png" alt="back-icon" />
+
+      }
+      <span> Back </span>
     </div>
 
-    <div class="details text-white md:w-3/4">
-      <div
-        class="flex flex-col md:flex-row md:justify-between md:w-full md:items-center"
-      >
-        <div class="flex flex-col">
-          <h1 class="text-[24px] font-extrabold my-5">Canada</h1>
-          <p class="text-[14px] font-medium my-2">
-            <span class="font-extrabold">Native Name:</span> Canada
-          </p>
-          <p class="text-[14px] font-medium my-2">
-            <span class="font-extrabold">Population:</span> 11,1234,567
-          </p>
-          <p class="text-[14px] font-medium my-2">
-            <span class="font-extrabold">Region:</span> Europe
-          </p>
-          <p class="text-[14px] font-medium my-2">
-            <span class="font-extrabold">Sub Region:</span> Western Europe
-          </p>
-          <p class="text-[14px] font-medium my-2">
-            <span class="font-extrabold">Capital:</span> Brussels
-          </p>
-        </div>
-
-        <div class="flex flex-col mt-7">
-          <p class="text-[14px] font-medium my-2">
-            <span class="font-extrabold">Top Level Domain:</span> .be
-          </p>
-          <p class="text-[14px] font-medium my-2">
-            <span class="font-extrabold">Currencies:</span> Euro
-          </p>
-          <p class="text-[14px] font-medium my-2">
-            <span class="font-extrabold">Languages:</span> Dutch, French, German
-          </p>
-        </div>
+    <div
+      class="flex flex-col lg:flex-row justify-between lg:items-center w-full mt-8"
+    >
+      <div class="w-full -ml-3 md:-ml-5 lg:w-3/4">
+        <img src="../assets/FLAG_C.png" alt="country-flag" />
       </div>
 
-      <div
-        class="flex flex-col md:flex-row md:items-center md:justify-between md:w-1/2 mt-5"
-      >
-        <div class="">
-          <p class="text-[14px] font-medium my-2">
-            <span class="font-extrabold">Border Countries:</span>
-          </p>
+      <div class="details md:w-3/4">
+        <div
+          class="flex flex-col md:flex-row md:justify-between md:w-full md:items-center"
+        >
+          <div class="flex flex-col">
+            <h1 class="text-[24px] font-extrabold my-5">Canada</h1>
+            <p class="text-[14px] font-medium my-2">
+              <span class="font-extrabold">Native Name:</span> Canada
+            </p>
+            <p class="text-[14px] font-medium my-2">
+              <span class="font-extrabold">Population:</span> 11,1234,567
+            </p>
+            <p class="text-[14px] font-medium my-2">
+              <span class="font-extrabold">Region:</span> Europe
+            </p>
+            <p class="text-[14px] font-medium my-2">
+              <span class="font-extrabold">Sub Region:</span> Western Europe
+            </p>
+            <p class="text-[14px] font-medium my-2">
+              <span class="font-extrabold">Capital:</span> Brussels
+            </p>
+          </div>
+
+          <div class="flex flex-col mt-7">
+            <p class="text-[14px] font-medium my-2">
+              <span class="font-extrabold">Top Level Domain:</span> .be
+            </p>
+            <p class="text-[14px] font-medium my-2">
+              <span class="font-extrabold">Currencies:</span> Euro
+            </p>
+            <p class="text-[14px] font-medium my-2">
+              <span class="font-extrabold">Languages:</span> Dutch, French,
+              German
+            </p>
+          </div>
         </div>
 
         <div
-          class="flex flex-row justify-between md:space-x-3 md:w-2/4 xl:w-1/4 xl:space-x-8"
+          class="flex flex-col md:flex-row md:items-center md:justify-between md:w-1/2 mt-5"
         >
-          <p class="shadow-xl bg-[#2B3844] px-4 md:px-8 text-xs py-1">France</p>
-          <p class="shadow-xl bg-[#2B3844] px-4 md:px-8 text-xs py-1">
-            Germany
-          </p>
-          <p class="shadow-xl bg-[#2B3844] px-4 md:px-8 text-xs py-1">
-            Netherlands
-          </p>
+          <div class="">
+            <p class="text-[14px] font-medium my-2">
+              <span class="font-extrabold">Border Countries:</span>
+            </p>
+          </div>
+
+          <div
+            class="flex flex-row justify-between sm:space-x-2 md:space-x-3 w-full md:w-1/4 xl:w-1/4 xl:space-x-8 mt-3 md:mt-0"
+          >
+            <p
+              [ngClass]="{
+                'shadow-xl  px-4 md:px-8 text-xs py-1': true,
+                'bg-[#2B3844]': isDarkTheme
+              }"
+            >
+              France
+            </p>
+            <p
+              [ngClass]="{
+                'shadow-xl  px-4 md:px-8 text-xs py-1': true,
+                'bg-[#2B3844]': isDarkTheme
+              }"
+            >
+              Germany
+            </p>
+            <p
+              [ngClass]="{
+                'shadow-xl  px-4 md:px-8 text-xs py-1': true,
+                'bg-[#2B3844]': isDarkTheme
+              }"
+            >
+              Netherlands
+            </p>
+          </div>
         </div>
       </div>
     </div>
