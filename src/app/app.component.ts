@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Inject, inject } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CountryListComponent } from './components/country-list/country-list.component';
@@ -25,10 +25,22 @@ export class AppComponent {
   isDarkTheme = false;
 
   themeService = inject(ThemeService);
+  constructor(@Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit() {
     this.themeService.isDarkTheme.subscribe((darkTheme) => {
       this.isDarkTheme = darkTheme;
+      this.applyTheme();
     });
+  }
+
+  applyTheme() {
+    if (this.isDarkTheme) {
+      this.document.body.style.backgroundColor = '#202c36';
+      this.document.body.style.color = '#fff';
+    } else {
+      this.document.body.style.backgroundColor = '#f2f2f2';
+      this.document.body.style.color = '#000';
+    }
   }
 }
