@@ -1,4 +1,10 @@
-<app-navbar />
-<div class="mx-auto mt-8 px-5 md:px-20">
+<div
+  [ngClass]="{
+    content: true,
+    'dark-theme': isDarkTheme,
+    'light-theme': !isDarkTheme
+  }"
+>
+  <app-navbar></app-navbar>
   <router-outlet />
 </div>
