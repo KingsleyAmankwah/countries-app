@@ -15,8 +15,15 @@ export class CountryService {
   private searchTerm = new BehaviorSubject<string>('');
   currentSearchTerm = this.searchTerm.asObservable();
 
+  private regionSubject = new BehaviorSubject<string>('');
+  currentRegion = this.regionSubject.asObservable();
+
   updateSearchTerm(term: string) {
     this.searchTerm.next(term);
+  }
+
+  updateRegion(region: string) {
+    this.regionSubject.next(region);
   }
 
   getCountries(): Observable<Country[]> {
