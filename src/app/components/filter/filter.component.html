@@ -8,7 +8,11 @@
   (click)="toggleFilter()"
 >
   <div>
+    @if(selectedRegion){
+    <p class="text-[12px] md:text-[14px]">{{ selectedRegion }}</p>
+    }@else {
     <p class="text-[12px] md:text-[14px]">Filter by Region</p>
+    }
   </div>
 
   <div>
@@ -39,11 +43,11 @@
     }"
   >
     <ul class="flex flex-col space-y-3 pl-5">
-      <li>Africa</li>
-      <li>America</li>
-      <li>Asia</li>
-      <li>Europe</li>
-      <li>Oceania</li>
+      <li (click)="changeRegion('Africa')">Africa</li>
+      <li (click)="changeRegion('Americas')">America</li>
+      <li (click)="changeRegion('Asia')">Asia</li>
+      <li (click)="changeRegion('Europe')">Europe</li>
+      <li (click)="changeRegion('Oceania')">Oceania</li>
     </ul>
   </div>
   }
