@@ -16,6 +16,7 @@ export class CountryCardComponent {
   countries!: Country[];
   isDarkTheme = false;
   searchTerm!: string;
+  selectedRegion = '';
 
   countryService = inject(CountryService);
   themeService = inject(ThemeService);
@@ -25,23 +26,35 @@ export class CountryCardComponent {
       this.isDarkTheme = darkTheme;
     });
 
-    this.countryService.getSearchTerm().subscribe((term) => {
+    this.countryService.currentSearchTerm.subscribe((term) => {
       this.searchTerm = term;
     });
 
     this.countryService.getCountries().subscribe((countries) => {
       this.countries = countries;
     });
+
+    this.countryService.currentRegion.subscribe((region) => {
+      this.selectedRegion = region;
+    });
+  }
+
+  selectRegion(region: string) {
+    this.selectedRegion = region;
   }
 
   get filteredContryList() {
-    if (!this.searchTerm) {
+    if (this.searchTerm) {
+      const lowerCaseTerm = this.searchTerm.toLowerCase();
+      return this.countries.filter((country) =>
+        country.name.common.toLowerCase().includes(lowerCaseTerm)
+      );
+    } else if (this.selectedRegion) {
+      return this.countries.filter(
+        (country) => country.region === this.selectedRegion
+      );
+    } else {
       return this.countries;
     }
-
-    const lowerCaseTerm = this.searchTerm.toLowerCase();
-    return this.countries.filter((country) =>
-      country.name.common.toLowerCase().includes(lowerCaseTerm)
-    );
   }
 }
