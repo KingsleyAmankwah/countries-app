@@ -4,7 +4,7 @@
   @for(country of filteredContryList; track countries){
   <div
     [ngClass]="{
-      'flex flex-col  my-5  rounded-lg': true,
+      'flex flex-col  my-5  rounded-lg cursor-pointer': true,
       'text-white bg-[#2B3844]': isDarkTheme,
       'bg-white text-black': !isDarkTheme
     }"
@@ -41,8 +41,22 @@
   </div>
 
   }@empty{
-  <div class="flex justify-center flex-col items-center">
-    <p class="text-center">No countries found for {{ searchTerm }}</p>
+
+  <div *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8]">
+    <div class="animate-pulse flex flex-col my-5 rounded-lg bg-gray-400">
+      <div
+        class="object-cover rounded-t-lg h-[160px] w-full sm:h-[160px] md:h-[200px] md:w-full lg:h-[200px] lg:w-full xl:h-[200px] xl:w-full bg-gray-500"
+      ></div>
+      <div class="country-details pl-4 py-8">
+        <div class="pb-4 h-6 bg-gray-500"></div>
+        <div class="space-y-1">
+          <div class="h-4 bg-gray-500"></div>
+          <div class="h-4 bg-gray-500"></div>
+          <div class="h-4 bg-gray-500"></div>
+        </div>
+      </div>
+    </div>
   </div>
+
   }
 </div>
