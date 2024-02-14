@@ -13,7 +13,7 @@ import { ThemeService } from '../../services/theme.service';
   styleUrl: './country-card.component.css',
 })
 export class CountryCardComponent {
-  countries!: Country[];
+  countries: Country[] = [];
   isDarkTheme = false;
   isLoading = true;
   searchTerm!: string;
@@ -56,7 +56,7 @@ export class CountryCardComponent {
       );
     }
 
-    if (this.selectedRegion) {
+    if (this.selectedRegion && this.selectedRegion !== 'All') {
       filteredCountries = filteredCountries.filter(
         (country) => country.region === this.selectedRegion
       );
