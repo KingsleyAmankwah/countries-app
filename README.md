@@ -30,6 +30,7 @@ The Countries App makes requests to the REST Countries API, fetching and display
 :heavy_check_mark: Filtering of countries by region;\
 :heavy_check_mark: Toggle the color scheme between light and dark mode;\
 :heavy_check_mark: Searching for a country using an input field;\
+:heavy_check_mark: Navigation through border countries on the detail page;\
 :heavy_check_mark: Optimal layout for the site depending on their device's screen size;
 
 ### Dark Theme
