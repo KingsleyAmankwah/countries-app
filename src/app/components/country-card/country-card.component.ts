@@ -13,7 +13,7 @@ import { ThemeService } from '../../services/theme.service';
   styleUrl: './country-card.component.css',
 })
 export class CountryCardComponent {
-  countries!: Country[];
+  countries: Country[] = [];
   isDarkTheme = false;
   searchTerm!: string;
   selectedRegion = '';
