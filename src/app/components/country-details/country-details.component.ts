@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ThemeService } from '../../services/theme.service';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../interface/country';
@@ -20,6 +20,7 @@ export class CountryDetailsComponent {
   countryService = inject(CountryService);
 
   route = inject(ActivatedRoute);
+  router = inject(Router);
 
   ngOnInit() {
     this.themeService.isDarkTheme.subscribe((darkTheme) => {
@@ -27,24 +28,33 @@ export class CountryDetailsComponent {
     });
 
     this.route.params.subscribe((params) => {
-      const countryName = params['name'];
-      this.countryService
-        .getCountryDetails(countryName)
-        .subscribe((country) => {
-          this.isLoading = false;
-          this.countryDetails = [country[0]];
-          console.log(this.countryDetails);
-        });
+      if (params['name']) {
+        this.getCountryDetails(params['name']);
+      } else if (params['code']) {
+        this.getCountryDetailsByCode(params['code']);
+      }
     });
   }
 
-  // loadBorderCountry(border: string) {
-  //   // Fetch the details of the border country and update the `country` variable
-  //   // This is just a placeholder, replace it with your actual code to fetch the country details
-  //   this.countryService.getCountryDetails(border).subscribe((country) => {
-  //     this.countryDetails = country;
-  //   });
-  // }
+  getCountryDetails(name: string) {
+    this.isLoading = true;
+    this.countryService.getCountryDetails(name).subscribe((country) => {
+      this.isLoading = false;
+      this.countryDetails = [country[0]];
+    });
+  }
+
+  getCountryDetailsByCode(code: string) {
+    this.isLoading = true;
+    this.countryService.getCountryByCode(code).subscribe((country) => {
+      this.isLoading = false;
+      this.countryDetails = [country[0]];
+    });
+  }
+
+  navigateToCountry(border: string) {
+    this.router.navigate(['/code', border]);
+  }
 
   objectKeys(obj: { [key: string]: {} }): string[] {
     return Object.keys(obj);
