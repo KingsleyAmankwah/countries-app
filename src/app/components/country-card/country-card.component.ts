@@ -15,6 +15,7 @@ import { ThemeService } from '../../services/theme.service';
 export class CountryCardComponent {
   countries: Country[] = [];
   isDarkTheme = false;
+  isLoading = true;
   searchTerm!: string;
   selectedRegion = '';
 
@@ -30,7 +31,9 @@ export class CountryCardComponent {
       this.searchTerm = term;
     });
 
+    this.isLoading = true;
     this.countryService.getCountries().subscribe((countries) => {
+      this.isLoading = false;
       this.countries = countries;
     });
 
