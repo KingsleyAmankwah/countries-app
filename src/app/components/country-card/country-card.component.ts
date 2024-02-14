@@ -13,7 +13,7 @@ import { ThemeService } from '../../services/theme.service';
   styleUrl: './country-card.component.css',
 })
 export class CountryCardComponent {
-  countries: Country[] = [];
+  countries!: Country[];
   isDarkTheme = false;
   isLoading = true;
   searchTerm!: string;
@@ -47,17 +47,21 @@ export class CountryCardComponent {
   }
 
   get filteredContryList() {
+    let filteredCountries = this.countries;
+
     if (this.searchTerm) {
       const lowerCaseTerm = this.searchTerm.toLowerCase();
-      return this.countries.filter((country) =>
+      filteredCountries = filteredCountries.filter((country) =>
         country.name.common.toLowerCase().includes(lowerCaseTerm)
       );
-    } else if (this.selectedRegion) {
-      return this.countries.filter(
+    }
+
+    if (this.selectedRegion) {
+      filteredCountries = filteredCountries.filter(
         (country) => country.region === this.selectedRegion
       );
-    } else {
-      return this.countries;
     }
+
+    return filteredCountries;
   }
 }
