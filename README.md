@@ -28,7 +28,7 @@
 
 The Countries App makes requests to the REST Countries API, fetching and displaying information about various countries on the homepage. It includes features like filtering by region, toggling between light and dark mode, and searching for specific countries.
 
-- Live Site URL: <a href="https://countries-app-nine-bice.vercel.app/" target="_blank">Demo🚀🔥</a>
+- Live Site URL: <a href="https://countries-app-smoky-two.vercel.app/" target="_blank">Demo🚀🔥</a>
 
 ## :sparkles: Features
 
