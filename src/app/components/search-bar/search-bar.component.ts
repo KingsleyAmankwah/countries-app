@@ -17,8 +17,10 @@ export class SearchBarComponent {
   countryService = inject(CountryService);
 
   handleInputChange(event: Event) {
-    const inputValue = (event.target as HTMLInputElement).value;
-    this.countryService.updateSearchTerm(inputValue);
+    const inputValue = (event.target as HTMLInputElement).value.trim();
+    if (inputValue !== '') {
+      this.countryService.updateSearchTerm(inputValue);
+    }
   }
 
   ngOnInit() {
