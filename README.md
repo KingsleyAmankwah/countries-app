@@ -12,7 +12,6 @@
   <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
   <a href="https://github.com/KingsleyAmankwah" target="_blank">Author</a>
 </p>
 
@@ -71,7 +70,7 @@ $ ng serve -o
 # The server will initialize in the <http://localhost:4200>
 ```
 
-## :memo: License
+## :memo:
 
 Made with :heart: by <a href="https://github.com/KingsleyAmanwkah" target="_blank">Kingsley Amankwah</a>
 
