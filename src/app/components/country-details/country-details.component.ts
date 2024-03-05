@@ -16,6 +16,8 @@ export class CountryDetailsComponent {
   isDarkTheme = false;
   isLoading = true;
   countryDetails!: Country[];
+  borderCountries: { [key: string]: string } = {};
+
   themeService = inject(ThemeService);
   countryService = inject(CountryService);
 
@@ -28,11 +30,7 @@ export class CountryDetailsComponent {
     });
 
     this.route.params.subscribe((params) => {
-      if (params['name']) {
-        this.getCountryDetails(params['name']);
-      } else if (params['code']) {
-        this.getCountryDetailsByCode(params['code']);
-      }
+      this.getCountryDetails(params['name']);
     });
   }
 
@@ -41,19 +39,25 @@ export class CountryDetailsComponent {
     this.countryService.getCountryDetails(name).subscribe((country) => {
       this.isLoading = false;
       this.countryDetails = [country[0]];
+      this.fetchBorderCountriesNames(this.countryDetails[0].borders);
     });
   }
 
-  getCountryDetailsByCode(code: string) {
-    this.isLoading = true;
-    this.countryService.getCountryByCode(code).subscribe((country) => {
-      this.isLoading = false;
-      this.countryDetails = [country[0]];
-    });
+  fetchBorderCountriesNames(borders: string[]) {
+    if (borders) {
+      borders.forEach((border) => {
+        this.countryService.getCountryByCode(border).subscribe((country) => {
+          this.borderCountries[border] = country[0].name.common;
+        });
+      });
+    }
   }
 
   navigateToCountry(border: string) {
-    this.router.navigate(['/code', border]);
+    this.countryService.getCountryByCode(border).subscribe((country) => {
+      this.isLoading = false;
+      this.router.navigate(['/details', country[0].name.common]);
+    });
   }
 
   objectKeys(obj: { [key: string]: {} }): string[] {
