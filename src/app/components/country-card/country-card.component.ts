@@ -56,7 +56,7 @@ export class CountryCardComponent {
       );
     }
 
-    if (this.selectedRegion && this.selectedRegion !== 'All') {
+    if (this.selectedRegion) {
       filteredCountries = filteredCountries.filter(
         (country) => country.region === this.selectedRegion
       );
