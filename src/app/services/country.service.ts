@@ -2,14 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Country } from '../interface/country';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CountryService {
   BASE_URL = environment.API_URL;
-
+  allCountries!: Country[];
   http = inject(HttpClient);
 
   private searchTerm = new BehaviorSubject<string>('');
@@ -26,18 +26,24 @@ export class CountryService {
     this.regionSubject.next(region);
   }
 
-  getCountries(): Observable<Country[]> {
-    const url = `${this.BASE_URL}all`;
-    return this.http.get<Country[]>(url);
+  getAllCountries(): Observable<Country[]> {
+    if (!this.allCountries) {
+      const url = `${this.BASE_URL}all`;
+      return this.http
+        .get<Country[]>(url)
+        .pipe(tap((countries) => (this.allCountries = countries)));
+    } else {
+      return of(this.allCountries);
+    }
   }
 
   getCountryDetails(name: string): Observable<Country[]> {
-    const url = `${this.BASE_URL}name/${name}`;
-    return this.http.get<Country[]>(url);
+    return of(
+      this.allCountries.filter((country) => country.name.common === name)
+    );
   }
 
-  getCountryByCode(code: string): Observable<Country[]> {
-    const url = `${this.BASE_URL}alpha/${code}`;
-    return this.http.get<Country[]>(url);
+  getCountryBorderFullNames(borders: string[]): Observable<string[]> {
+    return of(borders);
   }
 }
