@@ -32,9 +32,10 @@ export class CountryCardComponent {
     });
 
     this.isLoading = true;
-    this.countryService.getCountries().subscribe((countries) => {
+    this.countryService.getAllCountries().subscribe((countries) => {
       this.isLoading = false;
       this.countries = countries;
+      // console.log(countries);
     });
 
     this.countryService.currentRegion.subscribe((region) => {
