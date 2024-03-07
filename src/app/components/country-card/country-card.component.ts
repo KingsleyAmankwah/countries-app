@@ -35,7 +35,6 @@ export class CountryCardComponent {
     this.countryService.getAllCountries().subscribe((countries) => {
       this.isLoading = false;
       this.countries = countries;
-      // console.log(countries);
     });
 
     this.countryService.currentRegion.subscribe((region) => {
