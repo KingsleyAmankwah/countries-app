@@ -4,7 +4,6 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CountryListComponent } from './components/country-list/country-list.component';
 import { CountryDetailsComponent } from './components/country-details/country-details.component';
-import { CountryService } from './services/country.service';
 import { ThemeService } from './services/theme.service';
 
 @Component({
