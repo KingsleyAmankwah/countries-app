@@ -39,25 +39,27 @@ export class CountryDetailsComponent {
     this.countryService.getCountryDetails(name).subscribe((country) => {
       this.isLoading = false;
       this.countryDetails = [country[0]];
-      this.fetchBorderCountriesNames(this.countryDetails[0].borders);
+      this.fetchBorderCountriesNames(country[0].borders);
     });
   }
 
   fetchBorderCountriesNames(borders: string[]) {
     if (borders) {
-      borders.forEach((border) => {
-        this.countryService.getCountryByCode(border).subscribe((country) => {
-          this.borderCountries[border] = country[0].name.common;
+      this.countryService.getAllCountries().subscribe((countries) => {
+        borders.forEach((border) => {
+          const borderCountry = countries.find(
+            (country) => country.cca3 === border
+          );
+          if (borderCountry) {
+            this.borderCountries[border] = borderCountry.name.common;
+          }
         });
       });
     }
   }
 
   navigateToCountry(border: string) {
-    this.countryService.getCountryByCode(border).subscribe((country) => {
-      this.isLoading = false;
-      this.router.navigate(['/details', country[0].name.common]);
-    });
+    this.router.navigate(['/details', this.borderCountries[border]]);
   }
 
   objectKeys(obj: { [key: string]: {} }): string[] {
