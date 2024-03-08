@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 import { CountryService } from '../../services/country.service';
 
@@ -13,8 +13,10 @@ import { CountryService } from '../../services/country.service';
 export class SearchBarComponent {
   isDarkTheme = false;
 
-  themeService = inject(ThemeService);
-  countryService = inject(CountryService);
+  constructor(
+    private themeService: ThemeService,
+    private countryService: CountryService
+  ) {}
 
   handleInputChange(event: Event) {
     const inputValue = (event.target as HTMLInputElement).value.trim();
