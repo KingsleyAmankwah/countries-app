@@ -10,7 +10,8 @@ import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 export class CountryService {
   BASE_URL = environment.API_URL;
   allCountries!: Country[];
-  http = inject(HttpClient);
+
+  constructor(private http: HttpClient) {}
 
   private searchTerm = new BehaviorSubject<string>('');
   currentSearchTerm = this.searchTerm.asObservable();
