@@ -1,4 +1,4 @@
-import { Component, Inject, inject } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -20,11 +20,13 @@ import { ThemeService } from './services/theme.service';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'Countrie App';
+  title = 'Countries App';
   isDarkTheme = false;
 
-  themeService = inject(ThemeService);
-  constructor(@Inject(DOCUMENT) private document: Document) {}
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit() {
     this.themeService.isDarkTheme.subscribe((darkTheme) => {
