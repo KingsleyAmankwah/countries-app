@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ThemeService } from '../../services/theme.service';
 import { CountryService } from '../../services/country.service';
@@ -18,11 +18,12 @@ export class CountryDetailsComponent {
   countryDetails!: Country[];
   borderCountries: { [key: string]: string } = {};
 
-  themeService = inject(ThemeService);
-  countryService = inject(CountryService);
-
-  route = inject(ActivatedRoute);
-  router = inject(Router);
+  constructor(
+    private themeService: ThemeService,
+    private countryService: CountryService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.themeService.isDarkTheme.subscribe((darkTheme) => {
