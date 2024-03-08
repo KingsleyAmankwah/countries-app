@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent {
   isDarkTheme = false;
 
-  themeService = inject(ThemeService);
+  constructor(private themeService: ThemeService) {}
 
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;
