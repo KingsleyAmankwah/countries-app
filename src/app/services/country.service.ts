@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Country } from '../interface/country';
 import { BehaviorSubject, Observable, of, tap } from 'rxjs';
