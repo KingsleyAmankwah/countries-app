@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 import { CountryService } from '../../services/country.service';
 
@@ -16,8 +16,10 @@ export class FilterComponent {
   rotation = 0;
   selectedRegion = '';
 
-  themeService = inject(ThemeService);
-  countryService = inject(CountryService);
+  constructor(
+    private themeService: ThemeService,
+    private countryService: CountryService
+  ) {}
 
   toggleFilter() {
     this.showFilter = !this.showFilter;
