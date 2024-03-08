@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { CountryService } from '../../services/country.service';
 import { Country } from '../../interface/country';
 import { RouterLink } from '@angular/router';
@@ -19,8 +19,10 @@ export class CountryCardComponent {
   searchTerm!: string;
   selectedRegion = '';
 
-  countryService = inject(CountryService);
-  themeService = inject(ThemeService);
+  constructor(
+    private countryService: CountryService,
+    private themeService: ThemeService
+  ) {}
 
   ngOnInit() {
     this.themeService.isDarkTheme.subscribe((darkTheme) => {
